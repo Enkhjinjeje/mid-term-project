@@ -1,15 +1,13 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDIXJ5YT7hoNbBFqK3TBcV41-TzIO-7n7w",
-  authDomain: "fir-auth-6edd8.firebaseapp.com",
-  projectId: "fir-auth-6edd8",
-  storageBucket: "fir-auth-6edd8.appspot.com",
-  messagingSenderId: "904760319835",
-  appId: "1:904760319835:web:44fd0d957f114b4e51447e",
-  measurementId: "G-Q4TYKH9GG7",
+  apiKey: "AIzaSyAr9sFFnxRvodQmBj2F_cczSDvpAo6DHd0",
+  authDomain: "midterm-project-cbdd7.firebaseapp.com",
+  projectId: "midterm-project-cbdd7",
+  storageBucket: "midterm-project-cbdd7.appspot.com",
+  messagingSenderId: "718573105514",
+  appId: "1:718573105514:web:7febd8a32c825c14ac7513"
 };
-
 const app = firebase.initializeApp(firebaseConfig);
 const auth = app.auth();
 const db = app.firestore();
@@ -63,16 +61,6 @@ const registerWithEmailAndPassword = async (name, email, password) => {
   }
 };
 
-const sendPasswordResetEmail = async (email) => {
-  try {
-    await auth.sendPasswordResetEmail(email);
-    alert("Password reset link sent!");
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
-
 const logout = () => {
   auth.signOut();
 };
@@ -83,6 +71,6 @@ export {
   signInWithGoogle,
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,
-  sendPasswordResetEmail,
   logout,
+  firebase,
 };
