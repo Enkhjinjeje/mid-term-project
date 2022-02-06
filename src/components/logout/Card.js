@@ -20,6 +20,7 @@ export const Card = ({cardData}) => {
            <img src={image} />
            <h1>{title}</h1>
            <h1>{location}</h1>
+           <h1>this is working</h1>
         </BoxStyle>
     )
 }
