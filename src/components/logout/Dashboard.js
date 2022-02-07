@@ -4,8 +4,9 @@ import { useHistory } from "react-router";
 import { auth, db, logout } from "../firebase";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import dummyData from "../dummyData";
+import { MainDataContext } from "../context/test-context";
 import { Card } from "./Card";
+import { useContext } from "react";
 const Whole = styled.div`
   display: flex;
   flex-direction: row;
@@ -178,18 +179,19 @@ const Linetwo = styled.div`
   width: 8vw;
 `;
 const Right = styled.div`
-flex-direction: row;
-margin-top: 5vh;
-display: flex;
-flex-wrap: wrap;
-height: 82vh;
-width: 100vw;
+  flex-direction: row;
+  margin-top: 5vh;
+  display: flex;
+  flex-wrap: wrap;
+  height: 82vh;
+  width: 100vw;
 `;
 
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const history = useHistory();
+  const { data } = useContext(MainDataContext);
 
   const fetchUserName = async () => {
     try {
@@ -267,10 +269,8 @@ function Dashboard() {
           </SanAntonia>
         </Left>
         <Right>
-          {dummyData.map((data) => {
-            return (
-              <Card cardData={data}/>
-            );
+          {data.map((data) => {
+            return <Card cardData={data} />;
           })}
         </Right>
       </Whole>
@@ -280,10 +280,4 @@ function Dashboard() {
 
 export default Dashboard;
 
-{
-  /* <Link to="/userprofile">
-<button>
-  profile
-</button>
-</Link> */
-}
+

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Border from "../images/Mask.png";
-import Amin from "../images/Group 38.png"
+import Amin from "../images/Group 38.png";
 
 const Commen = styled.div`
   background-color: #97cfc9;
@@ -24,17 +24,17 @@ const Title = styled.div`
   font-size: 40px;
 `;
 const CommentRewiew = styled.img`
-height: 60vh;
-width: 20vw;
-padding: 20px;
-`
+  height: 60vh;
+  width: 20vw;
+  padding: 20px;
+`;
 const Comments = styled.div`
-height: 55vh;
-width: 70vw;
-position: absolute;
-top: 20vh;
-left: 15vw;
-`
+  height: 55vh;
+  width: 70vw;
+  position: absolute;
+  top: 20vh;
+  left: 15vw;
+`;
 
 export const Comment = () => {
   return (

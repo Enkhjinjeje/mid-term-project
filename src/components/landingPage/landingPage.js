@@ -5,8 +5,9 @@ import TopImage from "../images/Group.png";
 import running from "../images/guij bga ania.png";
 import lift from "../images/tumur urguj bga ubba.png";
 import yoga from "../images/yoga hij bga ubba.png";
-import {Comment} from "./Comment.js";
+import { Comment } from "./Comment.js";
 import { Contact } from "./contact";
+import { useDataProvider } from "../context/test-context";
 const Navbar = styled.div`
   width: 100%;
   height: 6vh; ;
@@ -75,7 +76,6 @@ const About = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
 `;
 const Yoga = styled.img`
   height: 60vh;
@@ -83,74 +83,75 @@ const Yoga = styled.img`
   margin-right: 50px;
 `;
 const YogaText = styled.div`
-display: flex;
-height: 60vh;
-margin-left: 50px;
-flex-direction: column;
-justify-content: center;
-text-align: left;
-h1{
-  margin-bottom: 40px;
-  font-size: 50px;
-}
-p{
-  font-size: 20px;
-}
-`
+  display: flex;
+  height: 60vh;
+  margin-left: 50px;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  h1 {
+    margin-bottom: 40px;
+    font-size: 50px;
+  }
+  p {
+    font-size: 20px;
+  }
+`;
 const AboutYoga = styled.div`
-flex-direction: row;
-display: flex;
-`
+  flex-direction: row;
+  display: flex;
+`;
 const AboutLift = styled.div`
-flex-direction: row;
-display: flex;
-`
+  flex-direction: row;
+  display: flex;
+`;
 const Lift = styled.img`
- height: 60vh;
+  height: 60vh;
   width: 20vw;
   margin-left: 200px;
-`
+`;
 const LiftText = styled.div`
-display: flex;
-height: 60vh;
-margin-right: 50px;
-flex-direction: column;
-justify-content: center;
-text-align: left;
-h1{
-  margin-bottom: 40px;
-  font-size: 50px;
-}
-p{
-  font-size: 20px;
-}
-`
+  display: flex;
+  height: 60vh;
+  margin-right: 50px;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  h1 {
+    margin-bottom: 40px;
+    font-size: 50px;
+  }
+  p {
+    font-size: 20px;
+  }
+`;
 const Run = styled.img`
   height: 60vh;
   width: 25vw;
   margin-right: 50px;
 `;
 const RunText = styled.div`
-display: flex;
-height: 60vh;
-margin-left: 50px;
-flex-direction: column;
-justify-content: center;
-text-align: left;
-h1{
-  margin-bottom: 40px;
-  font-size: 50px;
-}
-p{
-  font-size: 20px;
-}
-`
+  display: flex;
+  height: 60vh;
+  margin-left: 50px;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  h1 {
+    margin-bottom: 40px;
+    font-size: 50px;
+  }
+  p {
+    font-size: 20px;
+  }
+`;
 const AboutRun = styled.div`
-flex-direction: row;
-display: flex;
-padding-bottom: 10vh;
-`
-function landingPage() {
+  flex-direction: row;
+  display: flex;
+  padding-bottom: 10vh;
+`;
+const LandingPage = () => {
+  const { isAdmin } = useDataProvider();
   return (
     <div>
       <Navbar>
@@ -159,7 +160,7 @@ function landingPage() {
             <Login>Login</Login>
           </Link>
           <Link to="register">
-            <Sign>SIGN UP</Sign>
+            <Sign>{isAdmin ? "hi, Admin" : "SIGN UP"}</Sign>
           </Link>
         </Button>
       </Navbar>
@@ -193,10 +194,10 @@ function landingPage() {
             <p>do your own thing without ever</p>
             <p>having to worry about being judged.</p>
           </LiftText>
-          <Lift src={lift}/>
+          <Lift src={lift} />
         </AboutLift>
         <AboutRun>
-          <Run src={running}/>
+          <Run src={running} />
           <RunText>
             <h1>Fitness club</h1>
             <p>We create an environment where are</p>
@@ -210,6 +211,6 @@ function landingPage() {
       <Contact />
     </div>
   );
-}
+};
 
-export default landingPage;
+export default LandingPage;
