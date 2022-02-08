@@ -8,9 +8,9 @@ export const MainDataProvider = (props) => {
   const { children } = props;
   const data = dummyData;
 
-  const user = { name: "elbeg", email: "elber@nestsolutions.llc", admin: true };
+  const user = { name: "elbeg", email: "elber@nestsolutions.llc", admin: true};
 
-  const isAdmin = () => {
+  const isAdmin = (user) => {
     if (user.admin === true) {
       return true;
     } else {

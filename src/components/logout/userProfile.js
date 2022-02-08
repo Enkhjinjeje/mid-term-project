@@ -13,6 +13,7 @@ import TimeIcon from "../images/icons8-clock-35.png";
 import ScheduleIcon from "../images/icons8-schedule-35.png";
 import MemberIcon from "../images/icons8-male-user-35.png";
 import { Button } from "./userProfileStyle";
+import JoinIcon from "../images/icons8-running-40.png";
 
 const Whole = styled.div``;
 
@@ -35,6 +36,11 @@ const BigImage = styled.img`
 const BodyRigth = styled.div`
 padding-left: 3vw;
 `;
+const SmallImage = styled.div`
+width: 45vw;
+height: 20vh;
+background-color: grey;
+`
 const BodyLeft = styled.div`
   padding-left: 2vw;
 `;
@@ -85,7 +91,27 @@ const MemberImage = styled.img`
 const Description = styled.div`
  padding-top: 2vh;
 `
-
+const JoinButton = styled.button`
+  height: 5vh;
+  width: 12vw;
+  background: #7fc4bc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 64px;
+  border: none;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+  h3 {
+    color: #fafafa;
+  }
+  margin-top: 10vh;
+  img {
+    height: 4vh;
+    width: 2vw;
+  }
+`;
 function UserProfile() {
   const [user] = useAuthState(auth);
   const { data } = useContext(MainDataContext);
@@ -101,6 +127,9 @@ function UserProfile() {
       <Body>
         <BodyRigth>
           <BigImage src={selectedUser.image} />
+          <SmallImage>
+
+          </SmallImage>
         </BodyRigth>
         <BodyLeft>
           <Location>
@@ -122,13 +151,16 @@ function UserProfile() {
           <Description>
             <p>{selectedUser.description}</p>
           </Description>
+          <JoinButton>
+          <h3>Join Class</h3>
+          <img src={JoinIcon}></img>
+        </JoinButton>
         </BodyLeft>
       </Body>
     </Whole>
   );
 }
-export default UserProfile;
-
+export default UserProfile;  
 {
   /* <h1>user profile:</h1>
     <h1>Created time:{user.metadata.creationTime}</h1>

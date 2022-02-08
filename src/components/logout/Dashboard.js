@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import { auth, db, logout } from "../firebase";
-import { Link } from "react-router-dom";
+import { Checkbox } from "@mui/material";
 import styled from "styled-components";
 import { MainDataContext } from "../context/test-context";
 import { Card } from "./Card";
@@ -192,15 +192,15 @@ function Dashboard() {
   const [name, setName] = useState("");
   const history = useHistory();
   const { data } = useContext(MainDataContext);
-
+  const [filteredData, setFilteredData] = useState(data)
   const fetchUserName = async () => {
     try {
       const query = await db
         .collection("users")
         .where("uid", "==", user?.uid)
         .get();
-      const data = await query.docs[0].data();
-      setName(data.name);
+      const userData = await query.docs[0].data();
+      setName(userData.name);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -214,6 +214,12 @@ function Dashboard() {
     fetchUserName();
   }, [user, loading]);
 
+  const handleFilterValues = (value) => {
+ 
+    const data = filteredData?.filter((data) => data.title === value)
+    setFilteredData(data)
+  }
+
   return (
     <div>
       <Navbar>
@@ -224,7 +230,12 @@ function Dashboard() {
           <Filter>Filter</Filter>
           <Kind>Kind of class</Kind>
           <Running>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              value="Running"
+              onClick={e => handleFilterValues(e.target.value)}
+              
+            />
             <h2>Running</h2>
           </Running>
           <Weight>
@@ -269,7 +280,7 @@ function Dashboard() {
           </SanAntonia>
         </Left>
         <Right>
-          {data.map((data) => {
+          {filteredData?.map((data) => {
             return <Card cardData={data} />;
           })}
         </Right>
@@ -279,5 +290,3 @@ function Dashboard() {
 }
 
 export default Dashboard;
-
-
