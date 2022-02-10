@@ -1,5 +1,6 @@
 import firebase from "firebase";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyAr9sFFnxRvodQmBj2F_cczSDvpAo6DHd0",
   authDomain: "midterm-project-cbdd7.firebaseapp.com",
@@ -11,6 +12,8 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const auth = app.auth();
 const db = app.firestore();
+
+
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 

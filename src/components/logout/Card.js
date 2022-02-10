@@ -16,6 +16,8 @@ const BoxStyle = styled.div`
   img {
     height: 18vh;
     width: 14vw;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
   }
   a:link {
     text-decoration: none;

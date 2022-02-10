@@ -151,9 +151,6 @@ const AboutRun = styled.div`
   padding-bottom: 10vh;
 `;
 const LandingPage = () => {
-  const { isAdmin } = useDataProvider();
-  const user = { name: "elbeg", email: "elber@nestsolutions.llc", admin: true};
-  console.log(isAdmin(user))
 
   return (
     <div>
@@ -163,7 +160,7 @@ const LandingPage = () => {
             <Login>Login</Login>
           </Link>
           <Link to="register">
-            <Sign>{isAdmin(user) ? "hi admin" : "Sign up"}</Sign>
+            <Sign>Sign up</Sign>
           </Link>
         </Button>
       </Navbar>
