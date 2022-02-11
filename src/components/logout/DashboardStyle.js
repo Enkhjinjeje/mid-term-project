@@ -19,7 +19,7 @@ flex-direction: row;
 export const DeleteClass = styled.button`
 width: 12vw;
 height: 5vh;
-margin-left: 65vw;
+margin-left: 15vw;
 background: #FFFFFF;
 border: 4.41505px solid #55B1A6;
 box-sizing: border-box;

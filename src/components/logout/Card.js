@@ -75,12 +75,14 @@ const JoinButton = styled.button`
   text-decoration: none;
   h3 {
     color: #fafafa;
+    font-size: 20px;
+    margin-right: 0.3vw;
   }
   margin-left: 1vw;
   margin-top: 1vh;
   img {
-    height: 4vh;
-    width: 2vw;
+    height: 3vh;
+    width: 1.5vw;
   }
 `;
 
@@ -106,7 +108,7 @@ export const Card = ({ cardData }) => {
       </Time>
       <Link to={`/userprofile/${id}`} key={id}>
         <JoinButton>
-          <h3>Join Class</h3>
+          <h3>See Detail</h3>
           <img src={JoinIcon}></img>
         </JoinButton>
       </Link>

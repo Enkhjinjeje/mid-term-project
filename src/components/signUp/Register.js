@@ -103,7 +103,7 @@ const InputEmail = styled.div`
   }
 `;
 const FaceGoogle = styled.div`
-  padding-left: 7vw;
+  padding-left: 13vw;
   padding-top: 4vh;
   width: 30vw;
   display: flex;
@@ -224,7 +224,6 @@ function Register() {
         </HaveAccount>
         <FaceGoogle>
           <GooogleButton src={GoogleLogos} onClick={signInWithGoogle} />
-          <FacebookButton src={FaceBookLogos} />
         </FaceGoogle>
       </Left>
     </Whole>

@@ -189,7 +189,6 @@ function Login() {
         </Lines>
         <MoreSign>
           <Google src={GoogleLogo}  onClick={() => signInWithGoogle(email, password)}/>
-          <FaceBook src={FaceBookLogo}/>
         </MoreSign>
         {/* <button onClick={signInWithGoogle}>Login with Google</button> */}
       </Left>

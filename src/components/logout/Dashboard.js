@@ -41,6 +41,14 @@ import {
 } from "./DashboardStyle";
 import Checkbox from "@mui/material/Checkbox";
 
+const NewClass = styled.div`
+height: 5vh;
+width: 50vw;
+input{
+  width: 15vw;
+}
+`
+
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const history = useHistory();
@@ -94,16 +102,63 @@ function Dashboard() {
       }
     }
   };
-
-  const handleFilterTimeValues = (value) => {
-    const data = filteredData?.filter((data) => data.filterTime === value);
-    setFilteredData(data);
+  const handleFilterTimeValues = (e) => {
+    if (e.target.checked === false) {
+      setFilteredData(dummyData);
+    } else {
+      if (e.target.name === "morning") {
+        const data = filteredData?.filter((data) => data.filterTime === "morning");
+        setFilteredData(data);
+      }
+      if (e.target.name === "afternoon") {
+        const data = filteredData?.filter(
+          (data) => data.filterTime === "afternoon"
+        );
+        setFilteredData(data);
+      }
+      if (e.target.name === "night") {
+        const data = filteredData?.filter(
+          (data) => data.filterTime === "night"
+        );
+        setFilteredData(data);
+      }
+    }
   };
-  const handleFilterLocationValues = (value) => {
-    const data = filteredData?.filter((data) => data.filterClass === value);
-    setFilteredData(data);
+  
+const handleFilterLocationValues = (e) => {
+    if (e.target.checked === false) {
+      setFilteredData(dummyData);
+    } else {
+      if (e.target.name === "newyork") {
+        const data = filteredData?.filter((data) => data.filterLocation === "newyork");
+        setFilteredData(data);
+      }
+      if (e.target.name === "chicago") {
+        const data = filteredData?.filter(
+          (data) => data.filterLocation === "chicago"
+        );
+        setFilteredData(data);
+      }
+      if (e.target.name === "losangeles") {
+        const data = filteredData?.filter(
+          (data) => data.filterLocation === "losangeles"
+        );
+        setFilteredData(data);
+      }
+      if (e.target.name === "seattle") {
+        const data = filteredData?.filter(
+          (data) => data.filterLocation === "seattle"
+        );
+        setFilteredData(data);
+      }
+      if (e.target.name === "sanantonia") {
+        const data = filteredData?.filter(
+          (data) => data.filterLocation === "sanantonia"
+        );
+        setFilteredData(data);
+      };
+    };
   };
-
   return (
     <div>
       <Navbar>
@@ -119,6 +174,14 @@ function Dashboard() {
             <PlusImage src={PlusIcon} />
             <p>Add New Class</p>
           </AddClass>
+          <NewClass>
+            <input></input>
+            <input></input>
+            <input></input>
+            <input></input>
+            <input></input>
+            <input></input>
+          </NewClass>
         </AdminEdit>
       ) : (
         <div></div>
@@ -144,7 +207,7 @@ function Dashboard() {
               name="weight"
               onClick={(e) => handleFilterClassValues(e)}
             />
-            <h2>Weigthing</h2>
+            <h2>Weighting</h2>
           </Weight>
           <Swimming>
             <input
@@ -170,7 +233,8 @@ function Dashboard() {
             <input
               type="checkbox"
               value="morning"
-              onClick={(e) => handleFilterTimeValues(e.target.value)}
+              name="morning"
+              onClick={(e) => handleFilterTimeValues(e)}
             />
             <h2>Morning</h2>
           </Morning>
@@ -178,7 +242,8 @@ function Dashboard() {
             <input
               type="checkbox"
               value="afternoon"
-              onClick={(e) => handleFilterTimeValues(e.target.value)}
+              name="afternoon"
+              onClick={(e) => handleFilterTimeValues(e)}
             />
             <h2>Afternoon</h2>
           </Afternoon>
@@ -186,7 +251,8 @@ function Dashboard() {
             <input
               type="checkbox"
               value="night"
-              onClick={(e) => handleFilterTimeValues(e.target.value)}
+              name="night"
+              onClick={(e) => handleFilterTimeValues(e)}
             />
             <h2>Night</h2>
           </Night>
@@ -196,15 +262,17 @@ function Dashboard() {
             <input
               type="checkbox"
               value="newyork"
-              onClick={(e) => handleFilterLocationValues(e.target.value)}
+              name="newyork"
+              onClick={(e) => handleFilterLocationValues(e)}
             />
             <h2>New York</h2>
           </NewYork>
           <Chicago>
             <input
               type="checkbox"
-              value="chigaco"
-              onClick={(e) => handleFilterLocationValues(e.target.value)}
+              value="chicago"
+              name="chicago"
+              onClick={(e) => handleFilterLocationValues(e)}
             />
             <h2>Chicago</h2>
           </Chicago>
@@ -212,7 +280,8 @@ function Dashboard() {
             <input
               type="checkbox"
               value="losangeles"
-              onClick={(e) => handleFilterLocationValues(e.target.value)}
+              name="losangeles"
+              onClick={(e) => handleFilterLocationValues(e)}
             />
             <h2>Los Angeles</h2>
           </LosAngeles>
@@ -220,7 +289,8 @@ function Dashboard() {
             <input
               type="checkbox"
               value="seattle"
-              onClick={(e) => handleFilterLocationValues(e.target.value)}
+              name="seattle"
+              onClick={(e) => handleFilterLocationValues(e)}
             />
             <h2>Seattle</h2>
           </Seattle>
@@ -228,7 +298,8 @@ function Dashboard() {
             <input
               type="checkbox"
               value="sanantonia"
-              onClick={(e) => handleFilterLocationValues(e.target.value)}
+              name="sanantonia"
+              onClick={(e) => handleFilterLocationValues(e)}
             />
             <h2>San Antonia</h2>
           </SanAntonia>
@@ -241,6 +312,6 @@ function Dashboard() {
       </Whole>
     </div>
   );
-}
+};
 
-export default Dashboard;
+export default Dashboard

@@ -50,7 +50,6 @@ function UserProfile() {
       <Body>
         <BodyRigth>
           <BigImage src={selectedUser.image} />
-          <SmallImage></SmallImage>
         </BodyRigth>
         <BodyLeft>
           <Location>
@@ -72,10 +71,6 @@ function UserProfile() {
           <Description>
             <p>{selectedUser.description}</p>
           </Description>
-          <JoinButton>
-            <h3>Join Class</h3>
-            <img src={JoinIcon}></img>
-          </JoinButton>
         </BodyLeft>
       </Body>
     </Whole>
