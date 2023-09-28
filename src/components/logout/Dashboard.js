@@ -45,7 +45,7 @@ const NewClass = styled.div`
 height: 5vh;
 width: 50vw;
 input{
-  width: 15vw;
+  width: 1vw;
 }
 `
 
