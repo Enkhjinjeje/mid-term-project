@@ -1,6 +1,6 @@
 # Running the project in your browser
 
-Click this link or copy to run [app] (https://midterm-project-cbdd7.firebaseapp.com/?_gl=1*2cvvhb*_ga*MTY1MDgwMDQ0My4xNjQyMjI4NTU2*_ga_CW55HF8NVT*MTY5NTg1OTM4Mi42LjEuMTY5NTg2MTQ5Ny41OS4wLjA.)
+Click this link or copy to run [app](https://midterm-project-cbdd7.firebaseapp.com/?_gl=1*2cvvhb*_ga*MTY1MDgwMDQ0My4xNjQyMjI4NTU2*_ga_CW55HF8NVT*MTY5NTg1OTM4Mi42LjEuMTY5NTg2MTQ5Ny41OS4wLjA.)
 
 # Getting Started with Create React App
 
